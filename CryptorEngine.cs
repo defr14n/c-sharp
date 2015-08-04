@@ -21,7 +21,7 @@ namespace ConsoleApplication1
 
             System.Configuration.AppSettingsReader settingsReader = new AppSettingsReader();
             // Get the key from config file
-            string key = "sMkn1P0nor09o";
+            string key = "yourkey";
             //System.Windows.Forms.MessageBox.Show(key);
             if (useHashing)
             {
@@ -55,7 +55,7 @@ namespace ConsoleApplication1
 
             System.Configuration.AppSettingsReader settingsReader = new AppSettingsReader();
             //Get your key from config file to open the lock!
-            string key = "sMkn1P0nor09o";
+            string key = "yourkey";
 
             if (useHashing)
             {

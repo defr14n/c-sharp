@@ -1,0 +1,32 @@
+        private List<Dictionary<string, object>> param = new List<Dictionary<string, object>>();
+        private void loadTreeview()
+        {
+            string q = "select * from kategori_parameter";
+            param = db.List(q);
+            make();
+        }
+        
+
+        private void make(TreeViewItem item = null, string parent = "0")
+        {
+            foreach (var itm in param)
+            {
+                if (itm["parent_id"].ToString() == parent)
+                {
+                    TreeViewItem treeitem = new TreeViewItem();
+                    make(treeitem, itm["id_kategori_parameter"].ToString());
+                    treeitem.Header = itm["nama_kategori"];
+                    treeitem.Tag = itm["id_kategori_parameter"].ToString();
+
+                    if (parent != "0")
+                    {
+                        item.Items.Add(treeitem);
+                    }
+                    else
+                    {
+                        treeView1.Items.Add(treeitem);
+                    }
+                }
+            }
+            
+        }
